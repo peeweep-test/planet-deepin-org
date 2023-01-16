@@ -1,0 +1,7 @@
+# working temp dir
+.temp/
+
+# ide folder
+.idea/
+.vscode/
+
