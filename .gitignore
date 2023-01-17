@@ -1,6 +1,12 @@
 # working temp dir
 .temp/
 
+#
+content/
+
+# static site generated content
+public/
+
 # ide folder
 .idea/
 .vscode/
