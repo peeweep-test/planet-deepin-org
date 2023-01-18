@@ -9,7 +9,7 @@
           </h3>
           <div class="d-flex flex-fill align-items-center">
             <a href="{{ .post.Params.site_url }}" target="_blank" rel="noopener noreferrer">
-              <img height="51px" class="my-auto me-2" src="{{ with .post.Params.avatar }}{{ if in . "://" }}{{ . }}{{ else }}/hackergotchi/{{ . }}{{ end }}{{ else }}/hackergotchi/default.svg{{ end }}"/>
+              <img height="51px" class="my-auto me-2" src="{{ with .post.Params.avatar }}{{ if in . "://" }}{{ . }}{{ else }}/avatar/{{ . }}{{ end }}{{ else }}/avatar/default.svg{{ end }}"/>
             </a>
             <div class="d-flex flex-column">
               <span>

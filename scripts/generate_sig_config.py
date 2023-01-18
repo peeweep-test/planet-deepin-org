@@ -73,6 +73,7 @@ def generate_config(repo_name):
                     sig_name = val_of_key(metadata, ['name'], sig_id)
                     site_url = val_of_key(metadata, ['blog'], '')
                     matrix_url = val_of_key(metadata, ['matrix'], '')
+                    avatar = val_of_key(metadata, ['avatar'], 'default-sig.svg')
                     flairs: list[str] = []
                     if matrix_url:
                         flairs.append("matrix:{0}".format(matrix_url))
@@ -81,6 +82,7 @@ def generate_config(repo_name):
                         'feed_url': rss,
                         'site_url': site_url,
                         'flairs': ' '.join(flairs),
+                        'avatar': avatar,
                     }
                     logging.info(sig_name + rss)
     with open('../sig.ini', 'w') as configfile:
