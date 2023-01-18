@@ -23,28 +23,28 @@
               <span>
                 <a href="{{ .post.Params.site_url }}" target="_blank" rel="noopener noreferrer">{{ .post.Params.author }}</a>
                 {{ with .post.Params.irc }}
-                <span class="badge bg-dark"><img src="{{ "/img/irc.svg" | relURL }}"/> {{ . }}</span>
+                <span class="badge bg-dark"><img src="{{ "img/irc.svg" | relURL }}"/> {{ . }}</span>
                 {{ end }}
                 {{ with .post.Params.telegram }}
                 <a href="tg://user?id={{ . }}" target="_blank">
-                  <span class="badge bg-light"><img width=12px height=12px src="{{ "/img/telegram.svg" | relURL }}"/> {{ . }}</span>
+                  <span class="badge bg-light"><img width=12px height=12px src="{{ "img/telegram.svg" | relURL }}"/> {{ . }}</span>
                 </a>
                 {{ end }}
                 {{ with .post.Params.matrix }}
                 <a href="https://chat.getdeepin.org/" target="_blank">
-                  <span class="badge bg-secondary"><img width=12px height=12px src="{{ "/img/matrix.svg" | relURL }}"/> {{ . }}</span>
+                  <span class="badge bg-secondary"><img width=12px height=12px src="{{ "img/matrix.svg" | relURL }}"/> {{ . }}</span>
                 </a>
                 {{ end }}
                 {{ with .post.Params.gsoc }}
                 <a href="https://summerofcode.withgoogle.com/" target="_blank">
-                  <span class="badge bg-info"><img width=12px height=12px src="/img/gsoc.svg"/> GSoC</span>
+                  <span class="badge bg-info"><img width=12px height=12px src="{{ "img/gsoc.svg" | relURL }}"/> GSoC</span>
                 </a>
                 {{ end }}
               </span>
               <span class="text-muted">{{ .Params.date }} </span>
             </div>
             <a href="{{ .post.Params.feed_url }}" target="_blank" rel="noopener noreferrer" class="ms-auto post-feed" title="{{ .post.Params.feed_summary }}">
-              {{ if in .post.Params.format "rss" }}RSS {{ else }}Atom {{end}}<i class="icon icon_rss"></i>
+              {{ if in .post.Params.format "rss" }}RSS {{ else }}Atom {{end}}<i class="bi bi-rss"></i>
             </a>
           </div>
         </div>

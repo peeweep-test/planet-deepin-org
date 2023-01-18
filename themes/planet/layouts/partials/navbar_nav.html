@@ -1,0 +1,17 @@
+{{/*
+SPDX-FileCopyrightText: 2021-2022 Nguyen Hung Phu <phu.nguyen@kdemail.net>
+SPDX-License-Identifier: LGPL-2.1-or-later
+*/}}
+
+<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+  <li class="nav-item px-1">
+    <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" class="btn btn-sm btn-warning align-self-center">
+      RSS <i class="bi bi-rss"></i>
+    </a>
+  </li>
+  <li class="nav-item" hidden>
+    <a href="{{ with .OutputFormats.Get "ATOM" }}{{ .RelPermalink }}{{ end }}" class="btn btn-sm btn-warning align-self-center">
+    Atom <i class="bi bi-rss"></i>
+    </a>
+  </li>
+</ul>
