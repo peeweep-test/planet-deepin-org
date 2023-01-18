@@ -9,22 +9,30 @@
           </h3>
           <div class="d-flex flex-fill align-items-center">
             <a href="{{ .post.Params.site_url }}" target="_blank" rel="noopener noreferrer">
-              <img height="51px" class="my-auto me-2" src="{{ with .post.Params.avatar }}{{ if in . "://" }}{{ . }}{{ else }}/avatar/{{ . }}{{ end }}{{ else }}/avatar/default.svg{{ end }}"/>
+              {{ $avatar := "avatar/default.svg" | relURL }}
+              {{ with .post.Params.avatar }}
+                {{ if in . "://" }}
+                  {{ $avatar = . }}
+                {{ else }}
+                  {{ $avatar = printf "avatar/%s" . | relURL }}
+                {{ end }}
+              {{ end }}
+              <img height="51px" class="my-auto me-2" src="{{ $avatar }}"/>
             </a>
             <div class="d-flex flex-column">
               <span>
                 <a href="{{ .post.Params.site_url }}" target="_blank" rel="noopener noreferrer">{{ .post.Params.author }}</a>
                 {{ with .post.Params.irc }}
-                <span class="badge bg-dark"><img src="/img/irc.svg"/> {{ . }}</span>
+                <span class="badge bg-dark"><img src="{{ "/img/irc.svg" | relURL }}"/> {{ . }}</span>
                 {{ end }}
                 {{ with .post.Params.telegram }}
                 <a href="tg://user?id={{ . }}" target="_blank">
-                  <span class="badge bg-light"><img width=12px height=12px src="/img/telegram.svg"/> {{ . }}</span>
+                  <span class="badge bg-light"><img width=12px height=12px src="{{ "/img/telegram.svg" | relURL }}"/> {{ . }}</span>
                 </a>
                 {{ end }}
                 {{ with .post.Params.matrix }}
                 <a href="https://chat.getdeepin.org/" target="_blank">
-                  <span class="badge bg-secondary"><img width=12px height=12px src="/img/matrix.svg"/> {{ . }}</span>
+                  <span class="badge bg-secondary"><img width=12px height=12px src="{{ "/img/matrix.svg" | relURL }}"/> {{ . }}</span>
                 </a>
                 {{ end }}
                 {{ with .post.Params.gsoc }}
