@@ -1,7 +1,2 @@
-{{/*
-SPDX-FileCopyrightText: 2022 Phu Hung Nguyen <phu.nguyen@kdemail.net>
-SPDX-License-Identifier: LGPL-3.0-or-later
-*/}}
-
-{{ $js := resources.Get "js/responsive-video.js" | minify | fingerprint }}
+{{ $js := resources.Get "js/common.js" | minify | fingerprint }}
 <script src="{{ $js.Permalink }}" defer=""></script>

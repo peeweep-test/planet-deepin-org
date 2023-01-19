@@ -1,24 +1,9 @@
-{{/*
-SPDX-FileCopyrightText: 2021-2022 Nguyen Hung Phu <phu.nguyen@kdemail.net>
-SPDX-License-Identifier: LGPL-2.1-or-later
-*/}}
-
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
   <li class="nav-item">
-    <a class="nav-link" href="#">Add your own feed</a>
+    <a class="nav-link" href="#">{{ i18n "add-feed" }}</a>
   </li>
 </ul>
 <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-  <li class="nav-item mx-1 row">
-    <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" class="btn btn-sm btn-warning align-self-center">
-      RSS <i class="bi bi-rss"></i>
-    </a>
-  </li>
-  <li class="nav-item" hidden>
-    <a href="{{ with .OutputFormats.Get "ATOM" }}{{ .RelPermalink }}{{ end }}" class="btn btn-sm btn-warning align-self-center">
-    Atom <i class="bi bi-rss"></i>
-    </a>
-  </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Theme <i class="bi bi-circle-half"></i>
@@ -27,10 +12,10 @@ SPDX-License-Identifier: LGPL-2.1-or-later
       <li><a class="dropdown-item" onclick="setColorTheme('light')">Light</a></li>
       <li><a class="dropdown-item" onclick="setColorTheme('dark')">Dark</a></li>
     </ul>
-    <script>
-      function setColorTheme(theme) {
-        document.documentElement.setAttribute('data-bs-theme', theme);
-      }
-    </script>
+  </li>
+  <li class="nav-item ms-1 row">
+    <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" class="btn btn-sm btn-warning align-self-center">
+      RSS <i class="bi bi-rss"></i>
+    </a>
   </li>
 </ul>

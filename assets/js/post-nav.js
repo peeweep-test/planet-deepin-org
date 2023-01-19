@@ -33,12 +33,3 @@ const navPosts = (delta) => {
 const storeLang = (event) => {
   window.localStorage.setItem('lang', event.target.lang);
 }
-
-const lang = window.localStorage.getItem("lang");
-if (lang && lang !== 'en' && window.location.href == 'https://planet.kde.org/') {
-  console.log(lang)
-  const hasTranslation = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
-  if (hasTranslation) {
-    window.location.href = hasTranslation.href;
-  }
-}

@@ -1,7 +1,13 @@
 {{ define "main" }}
-{{ $paginator := .Paginate (where .Site.RegularPages "Layout" "!=" "search") }}
-{{ if eq $paginator.PageNumber 1 }}
-{{ partial "main-info.html" . }}
+  {{/* Merge post in all languages and display them all. Since Chinese might be the main content language for a long time... */}}
+  {{ $pages := .Site.RegularPages }}
+  {{ range .Site.Home.Translations }}
+    {{ $pages = $pages | lang.Merge .Site.RegularPages }}
+  {{ end }}
+
+  {{ $paginator := .Paginate (where $pages "Layout" "!=" "search") }}
+  {{ if eq $paginator.PageNumber 1 }}
+  {{ partial "main-info.html" . }}
 {{ end }}
 
 <div class="btn-group-vertical post-nav mx-2">
@@ -25,6 +31,6 @@
 {{ end }}
 
 {{ define "tail-import" }}
-{{ $js := resources.Get "js/index.js" | minify | fingerprint }}
-<script src="{{ $js.Permalink }}" defer=""></script>
+{{ $jsPostNav := resources.Get "js/post-nav.js" | minify | fingerprint }}
+<script src="{{ $jsPostNav.Permalink }}" defer=""></script>
 {{ end }}

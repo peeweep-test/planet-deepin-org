@@ -1,8 +1,26 @@
 {{ define "title" }}
-  <!-- This will override the default value set in baseof.html; i.e., "{{.Site.Title}}" in the original example-->
   {{ .Title }} &ndash; {{ .Site.Title }}
 {{ end }}
 {{ define "main" }}
-  <h1> Single {{ .Title }}</h1>
+<main class="container my-4" role="main">
+  <article class="post-content">
+  <h1> {{ .Title }}</h1>
+  {{ with .Params.subtitle }}
+    <h4>{{ . }}</h4>
+  {{ end }}
+  {{ if not .Params.hideMeta }}
+  <p class="meta">{{ .Params.date | time.Format ":date_full" }}
+    <br/>
+    {{- with .Params.author -}}
+      {{ . }}
+    {{ end }}
+    {{ if templates.Exists "partials/flairs.html" }}
+      {{ partial "flairs.html" . }}
+    {{ end }}
+  </p>
+  {{ end }}
+  <hr>
   {{ .Content }}
+  </article>
+</main>
 {{ end }}
