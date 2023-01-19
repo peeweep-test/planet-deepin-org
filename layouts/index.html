@@ -4,12 +4,12 @@
 {{ partial "main-info.html" . }}
 {{ end }}
 
-<div class="btn-group-vertical post-nav">
-  <button type="button" class="btn btn-default" onclick="navPosts(-1);" title="{{ i18n "up-post" }}">
-    <i class="icon icon_go-up-skip"></i>
+<div class="btn-group-vertical post-nav mx-2">
+  <button type="button" class="btn btn-outline-primary" onclick="navPosts(-1);" title="{{ i18n "up-post" }}">
+    <i class="bi bi-chevron-double-up"></i>
   </button>
-  <button type="button" class="btn btn-default" onclick="navPosts(1);" title="{{ i18n "down-post" }}">
-    <i class="icon icon_go-down-skip"></i>
+  <button type="button" class="btn btn-outline-primary" onclick="navPosts(1);" title="{{ i18n "down-post" }}">
+    <i class="bi bi-chevron-double-down"></i>
   </button>
 </div>
 <div class="container my-4 p-0">
