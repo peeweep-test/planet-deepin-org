@@ -6,3 +6,9 @@ down-post:
   other: 'Go down one post'
 up-post:
   other: 'Go up one post'
+theme:
+  other: 'Theme'
+dark:
+  other: 'Dark'
+light:
+  other: 'Light'
